@@ -27,8 +27,12 @@
 
 <ul>
   <% @answers.each do |answer| %>
-    <li><%= answer.answer() %> |
-
+    <li>
+      <form action="/<%= @survey.id %>/<%= @question.id %>/delete_answer/<%= answer.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <%= answer.answer() %> |
+        <button type="submit" class="buttons float-right">Delete This Answer</button>
+      </form>
     </li>
   <% end %>
 </ul>

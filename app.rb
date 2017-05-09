@@ -77,7 +77,7 @@ delete '/:survey_id/delete_question/:id' do
   survey_id = params.fetch('survey_id').to_i
   id = params.fetch('id').to_i
   question = Question.find(id)
-  question.delete
+  question.destroy
   redirect "/edit_survey/#{survey_id}"
 end
 
@@ -86,5 +86,14 @@ post '/:survey_id/:question_id/create_answer' do
   survey_id = params.fetch('survey_id').to_i
   question_id = params.fetch('question_id').to_i
   @answer = Answer.create({:answer => answer, :question_id => question_id})
+  redirect "/edit_survey/#{survey_id}/edit_question/#{question_id}"
+end
+
+delete '/:survey_id/:question_id/delete_answer/:id' do
+  survey_id = params.fetch('survey_id').to_i
+  question_id = params.fetch('question_id').to_i
+  id = params.fetch('id').to_i
+  answer = Answer.find(id)
+  answer.destroy
   redirect "/edit_survey/#{survey_id}/edit_question/#{question_id}"
 end
