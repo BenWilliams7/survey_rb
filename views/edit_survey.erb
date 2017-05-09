@@ -27,6 +27,6 @@
 
 <ul>
   <% @questions.each do |question| %>
-  <li><a href="/edit_questions/<%= question.id %>"><%= question.question() %></a></li>
+  <li><a href="/edit_survey/<%= @survey.id %>/edit_question/<%= question.id %>"><%= question.question() %></a></li>
   <% end %>
 </ul>

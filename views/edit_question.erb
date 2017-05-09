@@ -1,0 +1,34 @@
+<h1><%= @survey.name %></h1>
+<h2><%= @question.question %></h2>
+
+<h2>Edit Question</h2>
+
+<form action="/edit_survey/<%= @survey.id %>/edit_question/<%= @question.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="question">Enter your new question:</label><br>
+  <input name="question" type="text" required>
+  <button type="submit" class="buttons float-right">Update Question</button>
+</form>
+<hr>
+<form action="/<%= @survey.id %>/delete_question/<%= @question.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" class="buttons float-right">Delete This Question</button>
+</form>
+<hr>
+<h2>Create Answers</h2>
+
+<form action="/<%= @survey.id %>/<%= @question.id %>/create_answer" method="post">
+  <label for="answer">Enter your answer:</label><br>
+  <input name="answer" type="text" required>
+  <button type="submit" class="buttons float-right">Create Answer</button>
+</form>
+
+<h2>Answers</h2>
+
+<ul>
+  <% @answers.each do |answer| %>
+    <li><%= answer.answer() %> |
+
+    </li>
+  <% end %>
+</ul>
