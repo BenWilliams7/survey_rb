@@ -1,0 +1,15 @@
+<h1>Create Survey</h1>
+
+<form action="/survey_title" method="post">
+  <label for="title">Enter the name of your survey:</label><br>
+  <input name="title" type="text" required>
+  <button type="submit" class="buttons float-right">Enter Name</button>
+</form>
+
+<h2>Surveys</h2>
+
+<ul>
+  <% @surveys.each do |survey| %>
+  <li><a href="/edit_surveys/<%= survey.id %>"><%= survey.name() %></a></li>
+  <% end %>
+</ul>
