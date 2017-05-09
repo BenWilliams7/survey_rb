@@ -46,3 +46,10 @@ post '/create_question' do
   @question = Question.create({:question => question, :survey_id => survey_id})
   redirect ("/edit_survey/#{survey_id}")
 end
+
+delete '/delete_survey/:id' do
+  id = params.fetch('id').to_i
+  survey = Survey.find(id)
+  survey.delete
+  redirect ("/create_survey")
+end

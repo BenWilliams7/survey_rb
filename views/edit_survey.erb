@@ -8,7 +8,12 @@
   <input name="title" type="text" required>
   <button type="submit" class="buttons float-right">Update Name</button>
 </form>
-
+<hr>
+<form action="/delete_survey/<%= @survey.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" class="buttons float-right">Delete This Survey</button>
+</form>
+<hr>
 <h2>Create Questions</h2>
 
 <form action="/create_question" method="post">
