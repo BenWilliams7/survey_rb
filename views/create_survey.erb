@@ -10,6 +10,6 @@
 
 <ul>
   <% @surveys.each do |survey| %>
-  <li><a href="/edit_surveys/<%= survey.id %>"><%= survey.name() %></a></li>
+  <li><a href="/edit_survey/<%= survey.id %>"><%= survey.name() %></a></li>
   <% end %>
 </ul>

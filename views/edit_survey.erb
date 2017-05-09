@@ -1,0 +1,27 @@
+<h2><%= @survey.name %></h2>
+
+<h2>Edit Survey Name</h2>
+
+<form action="/edit_survey_title" method="post">
+  <input type="hidden" name="id" value="<%= @survey.id %>">
+  <label for="title">Enter the name of your survey:</label><br>
+  <input name="title" type="text" required>
+  <button type="submit" class="buttons float-right">Update Name</button>
+</form>
+
+<h2>Create Questions</h2>
+
+<form action="/create_question" method="post">
+  <input type="hidden" name="survey_id" value="<%= @survey.id %>">
+  <label for="question">Enter your question:</label><br>
+  <input name="question" type="text" required>
+  <button type="submit" class="buttons float-right">Create question</button>
+</form>
+
+<h2>Questions</h2>
+
+<ul>
+  <% @questions.each do |question| %>
+  <li><a href="/edit_questions/<%= question.id %>"><%= question.question() %></a></li>
+  <% end %>
+</ul>
