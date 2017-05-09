@@ -31,12 +31,13 @@ get '/edit_survey/:id' do
   erb :edit_survey
 end
 
-post '/edit_survey_title' do
+patch '/edit_survey_title/:id' do
+  # binding.pry
   title = params.fetch('title')
   id = params.fetch('id').to_i
   survey = Survey.find(id)
   @survey = survey.update({:name => title})
-  redirect ("/edit_survey/#{@survey.id}")
+  redirect ("/edit_survey/#{survey.id}")
 end
 
 post '/create_question' do

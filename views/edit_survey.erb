@@ -2,8 +2,8 @@
 
 <h2>Edit Survey Name</h2>
 
-<form action="/edit_survey_title" method="post">
-  <input type="hidden" name="id" value="<%= @survey.id %>">
+<form action="/edit_survey_title/<%= @survey.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
   <label for="title">Enter the name of your survey:</label><br>
   <input name="title" type="text" required>
   <button type="submit" class="buttons float-right">Update Name</button>
